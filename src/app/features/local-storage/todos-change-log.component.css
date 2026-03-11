@@ -1,0 +1,59 @@
+.log-panel {
+  margin-top: 0.5rem;
+}
+
+.hint {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.log-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 18rem;
+  overflow: auto;
+}
+
+.log-item {
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.6rem;
+  background: #f9fafb;
+}
+
+.log-empty {
+  padding: 0.75rem 0.5rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.log-time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.log-message {
+  margin-left: 0.35rem;
+  font-size: 0.85rem;
+  color: #111827;
+}
+
+.log-response {
+  margin: 0.3rem 0 0;
+  padding: 0.4rem 0.45rem;
+  border-radius: 0.375rem;
+  background: #000;
+  color: #e5e7eb;
+  font-size: 0.75rem;
+  max-height: 10rem;
+  overflow: auto;
+}
+

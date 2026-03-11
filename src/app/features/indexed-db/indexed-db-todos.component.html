@@ -1,0 +1,76 @@
+<div class="app">
+  <header>
+    <h1>TODO</h1>
+    <p class="subtitle">Angular + Storion (IndexedDB)</p>
+  </header>
+
+  @if (!isReady) {
+    <p class="loading">Loading...</p>
+  } @else {
+  <div class="side-by-side">
+    <section class="todo-view">
+      <div class="component-box">
+        <section class="add-todo">
+          <input
+            type="text"
+            placeholder="What needs to be done?"
+            [ngModel]="newTitle()"
+            (ngModelChange)="newTitle.set($event)"
+            (keydown.enter)="addTodo()"
+            class="todo-input"
+          />
+          <button type="button" (click)="addTodo()" class="btn btn-primary">
+            Add
+          </button>
+        </section>
+
+        <ul class="todo-list">
+          @for (todo of todos; track todo.id) {
+            <li class="todo-item" [class.completed]="todo.completed">
+              <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggle(todo)"
+                class="todo-checkbox"
+              />
+              @if (isEditing(todo.id)) {
+                <input
+                  type="text"
+                  [ngModel]="editTitle()"
+                  (ngModelChange)="editTitle.set($event)"
+                  (keydown.enter)="saveEdit()"
+                  (keydown.escape)="cancelEdit()"
+                  class="todo-edit-input"
+                />
+                <button type="button" (click)="saveEdit()" class="btn btn-sm">Save</button>
+                <button type="button" (click)="cancelEdit()" class="btn btn-sm btn-ghost">Cancel</button>
+              } @else {
+                <span class="todo-title">{{ todo.title }}</span>
+                <button type="button" (click)="startEdit(todo)" class="btn btn-sm btn-ghost" title="Edit">Edit</button>
+                <button type="button" (click)="remove(todo)" class="btn btn-sm btn-danger" title="Delete">Delete</button>
+              }
+            </li>
+          } @empty {
+            <li class="empty">No todos yet. Add one above.</li>
+          }
+        </ul>
+
+        @if (todos.length > 0) {
+          <footer class="footer">
+            <span>{{ activeCount }} active</span>
+            <span>{{ completedCount }} completed</span>
+          </footer>
+        }
+        <div class="component-label">IndexedDB: Todos component</div>
+      </div>
+    </section>
+    <aside class="log-view">
+      <div class="component-box">
+        <app-indexed-db-todos-change-log />
+        <div class="component-label">IndexedDB: Change log</div>
+      </div>
+    </aside>
+  </div>
+  }
+</div>
+

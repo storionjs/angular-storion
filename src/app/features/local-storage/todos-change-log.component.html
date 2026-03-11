@@ -1,0 +1,16 @@
+<div class="log-panel">
+  <h2>Todos table changes</h2>
+  <p class="hint">Events from db.subscribe('todos', …) — message and response logged below.</p>
+  <ul class="log-list">
+    @for (entry of logEntries(); track entry.time + entry.message) {
+      <li class="log-item">
+        <span class="log-time">{{ entry.time }}</span>
+        <span class="log-message">{{ entry.message }}</span>
+        <pre class="log-response">{{ entry.response | json }}</pre>
+      </li>
+    } @empty {
+      <li class="log-empty">No events yet. Add, edit, or delete a todo to see events here.</li>
+    }
+  </ul>
+</div>
+

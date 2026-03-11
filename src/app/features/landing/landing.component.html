@@ -1,0 +1,62 @@
+<div class="app landing">
+  <header class="landing-header">
+    <div class="landing-badge">Storion · Angular demos</div>
+    <h1>Choose how you want to store your todos</h1>
+    <p class="subtitle">
+      Explore different browser storage strategies side‑by‑side, powered by Storion.
+    </p>
+  </header>
+
+  <section class="storage-grid">
+    <article class="storage-card">
+      <div class="storage-card-header">
+        <div class="storage-icon storage-icon-local">LS</div>
+        <div>
+          <h2>LocalStorage</h2>
+          <p class="storage-tagline">Fast and simple key‑value storage.</p>
+        </div>
+      </div>
+
+      <p class="storage-copy">
+        Todos are persisted with Storion using the browser’s
+        <code>localStorage</code> API. Great for lightweight use‑cases.
+      </p>
+
+      <ul class="storage-meta">
+        <li><span class="meta-label">Persistence</span> Browser‑scoped, per origin</li>
+        <li><span class="meta-label">Best for</span> Small datasets, quick demos</li>
+        <li><span class="meta-label">Route</span> <code>/local-storage</code></li>
+      </ul>
+
+      <button class="btn btn-primary storage-cta" routerLink="/local-storage">
+        Open LocalStorage sample
+      </button>
+    </article>
+
+    <article class="storage-card">
+      <div class="storage-card-header">
+        <div class="storage-icon storage-icon-indexed">IDB</div>
+        <div>
+          <h2>IndexedDB</h2>
+          <p class="storage-tagline">Structured storage for larger data.</p>
+        </div>
+      </div>
+
+      <p class="storage-copy">
+        Todos are persisted with Storion using
+        <code>indexedDB</code>, giving you a more scalable, queryable store.
+      </p>
+
+      <ul class="storage-meta">
+        <li><span class="meta-label">Persistence</span> Indexed database in the browser</li>
+        <li><span class="meta-label">Best for</span> Larger datasets, richer querying</li>
+        <li><span class="meta-label">Route</span> <code>/indexed-db</code></li>
+      </ul>
+
+      <button class="btn btn-primary storage-cta" routerLink="/indexed-db">
+        Open IndexedDB sample
+      </button>
+    </article>
+  </section>
+</div>
+

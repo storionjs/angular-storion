@@ -1,0 +1,22 @@
+<section>
+  <h2>Change log (IndexedDB)</h2>
+  <p class="subtitle">Live Storion change events for the IndexedDB-backed todos table.</p>
+
+  @if (logEntries().length === 0) {
+    <p class="empty">No changes yet. Add or edit todos to see events here.</p>
+  } @else {
+    <ul class="todo-list">
+      @for (entry of logEntries(); track entry.time) {
+        <li class="todo-item">
+          <div class="todo-title">
+            <strong>{{ entry.time }}</strong>
+            &mdash;
+            {{ entry.message }}
+          </div>
+          <pre><code>{{ entry.response | json }}</code></pre>
+        </li>
+      }
+    </ul>
+  }
+</section>
+
